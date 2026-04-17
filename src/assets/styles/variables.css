@@ -1,0 +1,21 @@
+:root {
+  /* Colors */
+  --bg-primary: #fcf9f8;
+  --bg-secondary: #f6f3f2;
+  --text-primary: #323233;
+  --text-secondary: rgba(50, 50, 51, 0.6);
+  --text-tertiary: rgba(50, 50, 51, 0.8);
+  --brand-green: #536254;
+  --brand-green-light: #ebfcea;
+  --bg-button-gray: #e4e2e2;
+  --bg-product: #f0eded;
+  --nav-blur-bg: rgba(252, 249, 248, 0.8);
+  
+  /* Fonts */
+  --font-main: 'Work Sans', sans-serif;
+  --font-headline: 'Manrope', sans-serif;
+
+  /* Spacing */
+  --spacing-section: 96px;
+  --spacing-container: 32px;
+}
