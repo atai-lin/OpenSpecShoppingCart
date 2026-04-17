@@ -2,6 +2,9 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 
+import { useCartStore } from '../../stores/cart'
+
+const cartStore = useCartStore()
 const isScrolled = ref(false)
 
 const handleScroll = () => {
@@ -30,10 +33,10 @@ onUnmounted(() => {
         </div>
       </div>
       <div class="nav-right">
-        <button class="icon-btn">
-          <!-- Simplified icon representation -->
+        <router-link to="/cart" class="icon-btn cart-btn">
           <span class="icon">🛒</span>
-        </button>
+          <span v-if="cartStore.totalItems > 0" class="cart-badge">{{ cartStore.totalItems }}</span>
+        </router-link>
         <button class="icon-btn">
           <span class="icon">👤</span>
         </button>
@@ -115,5 +118,26 @@ onUnmounted(() => {
   background: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.cart-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--brand-green, #323233);
+  color: white;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
 }
 </style>

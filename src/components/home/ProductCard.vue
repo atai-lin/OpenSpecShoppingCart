@@ -1,32 +1,32 @@
 <script setup lang="ts">
 import AppButton from '../common/AppButton.vue'
+import { useCartStore } from '../../stores/cart'
+import { Product } from '../../stores/product'
 
-interface Product {
-  id: number
-  name: string
-  description: string
-  price: string
-  image: string
-}
+const cartStore = useCartStore()
 
-defineProps<{
+const props = defineProps<{
   product: Product
 }>()
+
+const addToCart = () => {
+  cartStore.addItem(props.product)
+}
 </script>
 
 <template>
-  <div className="product-card">
-    <div className="product-image-container">
-      <img :src="product.image" :alt="product.name" className="product-image" />
-      <div className="quick-add-overlay">
-        <AppButton variant="secondary" className="quick-add-btn">Quick Add</AppButton>
+  <div class="product-card">
+    <div class="product-image-container">
+      <img :src="product.image" :alt="product.name" class="product-image" />
+      <div class="quick-add-overlay">
+        <AppButton variant="secondary" class="quick-add-btn" @click="addToCart">Quick Add</AppButton>
       </div>
     </div>
     
-    <div className="product-info">
-      <h3 className="product-name">{{ product.name }}</h3>
-      <p className="product-desc">{{ product.description }}</p>
-      <div className="product-price">{{ product.price }}</div>
+    <div class="product-info">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <p class="product-desc">{{ product.description }}</p>
+      <div class="product-price">{{ product.price }}</div>
     </div>
   </div>
 </template>

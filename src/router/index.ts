@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/collections/winter',
       name: 'winter-collection',
       component: () => import('../views/ProductListingView.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/CartView.vue')
     }
   ]
 })

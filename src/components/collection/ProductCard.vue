@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import type { Product } from '../../stores/product'
+import { useCartStore } from '../../stores/cart'
 
-defineProps<{
+const cartStore = useCartStore()
+
+const props = defineProps<{
   product: Product
 }>()
+
+const addToCart = () => {
+  cartStore.addItem(props.product)
+}
 </script>
 
 <template>
@@ -11,7 +18,10 @@ defineProps<{
     <div class="image-container">
       <img :src="product.image" :alt="product.name" class="product-image">
       <div class="hover-overlay">
-        <button class="quick-view-btn">Quick View</button>
+        <div class="btn-group">
+          <button class="quick-view-btn">Quick View</button>
+          <button class="quick-view-btn quick-add-btn" @click="addToCart">Quick Add</button>
+        </div>
       </div>
     </div>
     
@@ -62,6 +72,13 @@ defineProps<{
   transition: opacity 0.3s ease;
 }
 
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 80%;
+}
+
 .product-card:hover .hover-overlay {
   opacity: 1;
 }
@@ -70,19 +87,28 @@ defineProps<{
   background-color: white;
   color: var(--text-primary);
   font-family: var(--font-main);
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  padding: 12px 24px;
+  padding: 12px 16px;
   border: none;
   cursor: pointer;
   box-shadow: 0 24px 48px -12px rgba(50, 50, 51, 0.08);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.quick-add-btn {
+  background-color: var(--brand-green, #323233);
+  color: white;
+}
+
 .quick-view-btn:hover {
   background-color: #f6f3f2;
   transform: translateY(-2px);
+}
+
+.quick-add-btn:hover {
+  background-color: #000;
 }
 
 .product-info {
