@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const isScrolled = ref(false)
 
@@ -18,23 +19,23 @@ onUnmounted(() => {
 
 <template>
   <nav :class="['top-nav', { 'is-scrolled': isScrolled }]">
-    <div className="nav-container">
-      <div className="nav-left">
-        <a href="/" className="logo">ATELIER</a>
-        <div className="nav-links">
-          <a href="#" className="nav-link">Collections</a>
-          <a href="#" className="nav-link">New Arrivals</a>
-          <a href="#" className="nav-link">Archive</a>
-          <a href="#" className="nav-link">About</a>
+    <div class="nav-container">
+      <div class="nav-left">
+        <router-link to="/" class="logo">ATELIER</router-link>
+        <div class="nav-links">
+          <router-link to="/collections/winter" class="nav-link">Collections</router-link>
+          <router-link to="/" class="nav-link">New Arrivals</router-link>
+          <router-link to="/" class="nav-link">Archive</router-link>
+          <router-link to="/" class="nav-link">About</router-link>
         </div>
       </div>
-      <div className="nav-right">
-        <button className="icon-btn">
+      <div class="nav-right">
+        <button class="icon-btn">
           <!-- Simplified icon representation -->
-          <span className="icon">🛒</span>
+          <span class="icon">🛒</span>
         </button>
-        <button className="icon-btn">
-          <span className="icon">👤</span>
+        <button class="icon-btn">
+          <span class="icon">👤</span>
         </button>
       </div>
     </div>
@@ -75,6 +76,7 @@ onUnmounted(() => {
   font-size: 24px;
   letter-spacing: -0.48px;
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .nav-links {
@@ -89,10 +91,16 @@ onUnmounted(() => {
   letter-spacing: -0.8px;
   text-transform: uppercase;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link.router-link-active {
   color: var(--text-primary);
+}
+
+.nav-link.router-link-active {
+  border-bottom: 1px solid var(--brand-green);
+  padding-bottom: 4px;
 }
 
 .nav-right {
@@ -104,5 +112,8 @@ onUnmounted(() => {
 .icon-btn {
   font-size: 18px;
   color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 </style>

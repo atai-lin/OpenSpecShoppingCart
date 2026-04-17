@@ -1,21 +1,15 @@
 <script setup lang="ts">
+import { RouterView } from 'vue-router'
 import TopNavBar from './components/layout/TopNavBar.vue'
 import AppFooter from './components/layout/AppFooter.vue'
-import HeroSection from './components/home/HeroSection.vue'
-import CategoryBentoGrid from './components/home/CategoryBentoGrid.vue'
-import BestsellersSection from './components/home/BestsellersSection.vue'
-import BrandEthosSection from './components/home/BrandEthosSection.vue'
 </script>
 
 <template>
-  <div className="app-wrapper">
+  <div class="app-wrapper">
     <TopNavBar />
     
-    <main className="main-content">
-      <HeroSection />
-      <CategoryBentoGrid />
-      <BestsellersSection />
-      <BrandEthosSection />
+    <main class="main-content">
+      <RouterView />
     </main>
     
     <AppFooter />
