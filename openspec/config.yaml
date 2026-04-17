@@ -3,11 +3,27 @@ schema: spec-driven
 # Project context (optional)
 # This is shown to AI when creating artifacts.
 # Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  語言: 中文 (繁體)
+  所有產出物內容必須使用繁體中文撰寫。
+  除了技術專有名詞、組件名稱、變數 ID、路徑或 kebab-case 標識符（例如 `product-listing`）應保持原樣外，所有描述性文字與標題均需轉換為繁體中文。
+
+  專案背景：
+  - 名稱：OpenSpec Shopping Cart
+  - 類型：現代感電子商務平台，注重極簡美學與流暢體驗。
+  
+  技術棧 (Tech Stack)：
+  - 核心框架：Vue 3 (Composition API)
+  - 建置工具：Vite
+  - 語言：TypeScript
+  - 狀態管理：Pinia
+  - 路由：Vue Router
+  - 樣式：Vanilla CSS, 使用 CSS Variables 管理設計標記 (Tokens)。
+  
+  架構慣例：
+  - 組件拆分：依功能分為 layout (佈局), common (通用組件), home (首頁特定), collection (產品系列)。
+  - 資料流：所有產品資料透過 Pinia Store (`stores/product.ts`) 進行中心化管理與過濾。
+  - 效能導向：路由使用 Lazy Loading，組件偏好按需加載。
 
 # Per-artifact rules (optional)
 # Add custom rules for specific artifacts.
