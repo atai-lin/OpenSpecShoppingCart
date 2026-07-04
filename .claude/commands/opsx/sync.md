@@ -1,6 +1,10 @@
-description = "Sync delta specs from a change to main specs"
+---
+name: "OPSX: Sync"
+description: Sync delta specs from a change to main specs
+category: Workflow
+tags: [workflow, specs, experimental]
+---
 
-prompt = """
 Sync delta specs from a change to main specs.
 
 This is an **agent-driven** operation - you will read delta specs and directly edit main specs to apply the changes. This allows intelligent merging (e.g., adding a scenario without copying the entire requirement).
@@ -137,4 +141,3 @@ Main specs are now updated. The change remains active - archive when implementat
 - If something is unclear, ask for clarification
 - Show what you're changing as you go
 - The operation should be idempotent - running twice should give same result
-"""

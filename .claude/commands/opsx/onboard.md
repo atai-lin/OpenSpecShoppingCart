@@ -1,6 +1,10 @@
-description = "Guided onboarding - walk through a complete OpenSpec workflow cycle with narration"
+---
+name: "OPSX: Onboard"
+description: Guided onboarding - walk through a complete OpenSpec workflow cycle with narration
+category: Workflow
+tags: [workflow, onboarding, tutorial, learning]
+---
 
-prompt = """
 Guide the user through their first complete OpenSpec workflow cycle. This is a teaching experience—you'll do real work in their codebase while explaining each step.
 
 **Store selection:** If the user names a store (a store is a standalone OpenSpec repo registered on this machine) or the work lives in one, run `openspec store list --json` to discover registered store ids, then pass `--store <id>` on the commands that read or write specs and changes (`new change`, `status`, `instructions`, `list`, `show`, `validate`, `archive`, `doctor`, `context`). Other commands do not take the flag. Hints printed by commands already carry the flag; keep it on follow-ups. Without a store, commands act on the nearest local `openspec/` root.
@@ -544,4 +548,3 @@ Exit gracefully.
 - **Handle exits gracefully**—never pressure the user to continue
 - **Use real codebase tasks**—don't simulate or use fake examples
 - **Adjust scope gently**—guide toward smaller tasks but respect user choice
-"""
